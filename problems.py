@@ -1,4 +1,4 @@
-
+from Python.utils import straight_line_distance
 
 
 class Problem(object):
@@ -30,3 +30,7 @@ class RouteProblem(Problem):
 
     def action_cost(self, s, action, s1): # action dung de kiem tra trung gian
         return self.map.distance[s, s1]
+
+    def h(self, node):
+        locations = self.map.locations
+        return straight_line_distance(locations[node.state], locations[self.goal])
